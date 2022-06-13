@@ -26,12 +26,16 @@ FavoriteColors.testPromptAction = tiled.registerAction("FavoriteColors", functio
    // var mainLabel = dialog.addLabel("Pick your four favorite colors", true);
     // var spacerLabel = dialog.addLabel('Colors', false);
     var colorButton1 = dialog.addColorButton("#1");
+    colorButton1.mainWidget.color = "#000000"
     watchForColorChange(colorButton1, "color1");   
     var colorButton2 = dialog.addColorButton("#2");
+    colorButton2.mainWidget.color = "#aef1b2"
     watchForColorChange(colorButton2, "color2");
     var colorButton3 = dialog.addColorButton("#3");
+    colorButton3.mainWidget.color = "#bc0e9b"
     watchForColorChange(colorButton3, "color3");
     var colorButton4 = dialog.addColorButton("#4");
+    colorButton4.mainWidget.color = "#ff1212"
     watchForColorChange(colorButton4, "color4");
     dialog.addSeparator();
     dialog.addSlider("Hello my slider: ");
