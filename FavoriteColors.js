@@ -40,7 +40,7 @@ FavoriteColors.testPromptAction = tiled.registerAction("FavoriteColors", functio
     dialog.addSeparator();
     dialog.addSlider("Hello my slider: ");
     var okButton = dialog.addButton("OK");
-    okButton.mainWidget.clicked.connect(() => {
+    okButton.clicked.connect(() => {
         tiled.log(`OK button clicked.`);    
     });
     dialog.show();

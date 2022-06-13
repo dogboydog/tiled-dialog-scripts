@@ -79,23 +79,23 @@ RandomBackgroundTerrain.testPromptAction = tiled.registerAction("RandomBackgroun
 
     dialog.addSeparator();
     var generateButton = dialog.addButton("Generate");
-    generateButton.mainWidget.clicked.connect(() => {
+    generateButton.clicked.connect(() => {
         tiled.log(`Generating...`);
         tiled.log(`Settings: ${JSON.stringify(state, null, 2)}`)
     });
     dialog.addNewRow();
     var downloadButton = dialog.addButton("Download");
-    downloadButton.mainWidget.clicked.connect(() => {
+    downloadButton.clicked.connect(() => {
         tiled.log(`Downloading...`);
         dialog.resize(250, 250);
     });
     var toggleTerrain = dialog.addButton("Toggle Terrain");
-    toggleTerrain.mainWidget.clicked.connect(() => {
+    toggleTerrain.clicked.connect(() => {
         state.terrain = !state.terrain;
         tiled.log(`Terrain toggled to: ${state.terrain}`);
     });
     var toggleTiles = dialog.addButton("Toggle Tiles");
-    toggleTiles.mainWidget.clicked.connect(() => {
+    toggleTiles.clicked.connect(() => {
         state.tiles = !state.tiles;
         tiled.log(`Tiles toggled to: ${state.tiles}`);
     });

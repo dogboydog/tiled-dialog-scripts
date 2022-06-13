@@ -83,7 +83,7 @@ So make sure you enter it correctly.
             secondDialog = undefined;
         }
     });
-    button.mainWidget.clicked.connect(()=>{
+    button.clicked.connect(()=>{
         tiled.log(`Second dialog button clicked`);
         if (!secondDialog){
             secondDialog= new Dialog(); // parent to existing dialog

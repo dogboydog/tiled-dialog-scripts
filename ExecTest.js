@@ -46,7 +46,7 @@ I put my words on it.
     watchForStateChange(doubleInput, "doubleInput");
 
     var okButton = dialog.addButton("OK");
-    okButton.mainWidget.clicked.connect(()=>{
+    okButton.clicked.connect(()=>{
         dialog.accept();
     });
     dialog.finished.connect((result)=>{
