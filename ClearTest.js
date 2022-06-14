@@ -20,10 +20,9 @@ ClearTest.testPromptAction = tiled.registerAction("ClearTest", function (action)
     button.clicked.connect(()=>{
         tiled.log(`clear button clicked`);
         dialog.clear();
-        dialog.addLabel("Thanks. I never liked that old label.");
+        dialog.addLabel("Thanks. I never liked that old label.", true);
+        dialog.addNewRow();
         dialog.addSlider("Now slide this:");
-        dialog.repaint();
-        dialog.show();
     });
     dialog.show();
 });

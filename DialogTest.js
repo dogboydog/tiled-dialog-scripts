@@ -19,6 +19,12 @@ DialogTest.testPromptAction = tiled.registerAction("DialogTest", function (actio
                 state[stateKey] = newValue;
             });
         }
+        if (widget.mainWidget.textChanged){
+            widget.mainWidget.textChanged.connect((newValue) => {
+                tiled.log(`The new ${stateKey} text is ${newValue}`);
+                state[stateKey] = newValue;
+            });
+        }
         if (widget.mainWidget.currentTextChanged){
             widget.mainWidget.currentTextChanged.connect((newValue) => {
                 tiled.log(`The new ${stateKey} text is ${newValue}`);
@@ -74,6 +80,10 @@ So make sure you enter it correctly.
     watchForStateChange(slider1, "slider1");
     var doubleInput = dialog.addNumberInput("");
 
+    var textInput = dialog.addTextInput('Name: ', 'Fred');
+    watchForStateChange(textInput, "textInput");
+    var textInput2 = dialog.addTextInput('Occupation: ', '');
+    watchForStateChange(textInput2, "textInput2");
     var secondDialog; 
     var button = dialog.addButton("Open second dialog");
 
