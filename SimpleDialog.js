@@ -11,9 +11,6 @@ SimpleDialog.testPromptAction = tiled.registerAction("SimpleDialog", function (a
 I put my words on it.
     `, true);
     var doubleInput = dialog.addNumberInput("Your number");
-    for(const myKey of Object.keys(doubleInput)){
-        tiled.log(`double input widget key ${myKey}`);
-    }
     doubleInput.valueChanged.connect((newValue) => {
         tiled.log(`The new double value is ${newValue}`)
     });
