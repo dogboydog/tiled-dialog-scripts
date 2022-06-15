@@ -6,16 +6,15 @@ var SimpleDialog = {};
 SimpleDialog.testPromptAction = tiled.registerAction("SimpleDialog", function (action) {
 
     var dialog = new Dialog();
-    dialog.setTitle("Simple Dialog");
     dialog.addLabel(
         `This is my label
 I put my words on it.
     `, true);
     var doubleInput = dialog.addNumberInput("Your number");
-    for(const myKey of Object.keys(doubleInput.mainWidget)){
+    for(const myKey of Object.keys(doubleInput)){
         tiled.log(`double input widget key ${myKey}`);
     }
-    doubleInput.mainWidget.valueChanged.connect((newValue) => {
+    doubleInput.valueChanged.connect((newValue) => {
         tiled.log(`The new double value is ${newValue}`)
     });
     dialog.show();

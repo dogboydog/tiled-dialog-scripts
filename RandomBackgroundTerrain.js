@@ -12,34 +12,34 @@ RandomBackgroundTerrain.testPromptAction = tiled.registerAction("RandomBackgroun
         tiles: true
     };
     function watchForStateChange(widget, stateKey) {
-        if (widget.mainWidget) {
-            if (widget.mainWidget.valueChanged) {
-                widget.mainWidget.valueChanged.connect((newValue) => {
-                    tiled.log(`The new ${stateKey} value is ${newValue}`);
-                    state[stateKey] = newValue;
-                });
-            }
-            if (widget.mainWidget.colorChanged) {
-                widget.mainWidget.colorChanged.connect((newValue) => {
-                    tiled.log(`The new ${stateKey} color is ${newValue}`);
-                    state[stateKey] = newValue;
-                });
-            }
-            if (widget.mainWidget.currentTextChanged) {
-                widget.mainWidget.currentTextChanged.connect((newValue) => {
-                    tiled.log(`The new ${stateKey} text is ${newValue}`);
-                    state[stateKey] = newValue;
-                });
-            }
+
+        if (widget.valueChanged) {
+            widget.valueChanged.connect((newValue) => {
+                tiled.log(`The new ${stateKey} value is ${newValue}`);
+                state[stateKey] = newValue;
+            });
         }
-        else {
-            if (widget.stateChanged) {
-                widget.stateChanged.connect((newValue) => {
-                    tiled.log(`The new ${stateKey} value is ${newValue}`);
-                    state[stateKey] = newValue;
-                });
-            }
+        if (widget.colorChanged) {
+            widget.colorChanged.connect((newValue) => {
+                tiled.log(`The new ${stateKey} color is ${newValue}`);
+                state[stateKey] = newValue;
+            });
         }
+        if (widget.currentTextChanged) {
+            widget.currentTextChanged.connect((newValue) => {
+                tiled.log(`The new ${stateKey} text is ${newValue}`);
+                state[stateKey] = newValue;
+            });
+        }
+
+
+        if (widget.stateChanged) {
+            widget.stateChanged.connect((newValue) => {
+                tiled.log(`The new ${stateKey} value is ${newValue}`);
+                state[stateKey] = newValue;
+            });
+        }
+
     }
     var mainLabel = dialog.addLabel("Random Background Terrain", true);
     dialog.addSeparator("Generation Options");
