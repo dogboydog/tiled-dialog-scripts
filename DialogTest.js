@@ -42,17 +42,16 @@ DialogTest.testPromptAction = tiled.registerAction("DialogTest", function (actio
 
     }
     var dialog = new Dialog();
-    dialog.resize(450, 600);
     dialog.setTitle("All Components Test");
-    dialog.addLabel("This is a label in a script");
+    dialog.addHeading("This is a heading in a script");
     dialog.addSeparator();
     var doubleInput = dialog.addNumberInput("");
     watchForStateChange(doubleInput, "doubleInput");
     dialog.addSeparator("Dropdowns ");
-    dialog.addLabel("Make your choice: ");
+    dialog.addHeading("Make your choice: ");
     var comboBox = dialog.addComboBox("", ["hamburger", "hot dog", "carrot"]);
 
-    comboBox = "your lunch";
+    comboBox.toolTip = "your lunch";
     watchForStateChange(comboBox, "comboBox");
     dialog.addNewRow();
     var comboBox2 = dialog.addComboBox("Choose your 2nd pet:", ["frog", "cat", "turtle"]);
@@ -64,7 +63,7 @@ DialogTest.testPromptAction = tiled.registerAction("DialogTest", function (actio
     colorButton.color = "#bb12cc"
     colorButton.toolTip = "This is your color.";
     watchForStateChange(colorButton, 'colorButton');
-    dialog.addLabel(
+    dialog.addHeading(
         `Please enter your important second value. 
 This value will determine everything that happens to you from now on.
 So make sure you enter it correctly.
@@ -100,7 +99,7 @@ So make sure you enter it correctly.
         tiled.log(`Second dialog button clicked`);
         if (!secondDialog) {
             secondDialog = new Dialog(); // parent to existing dialog
-            secondDialog.addLabel("This is the second dialog");
+            secondDialog.addHeading("This is the second dialog");
             secondDialog.setTitle("Second Window");
             secondDialog.show();
 

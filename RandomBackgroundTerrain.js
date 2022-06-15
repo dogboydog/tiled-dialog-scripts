@@ -6,7 +6,7 @@ var RandomBackgroundTerrain = {};
 
 RandomBackgroundTerrain.testPromptAction = tiled.registerAction("RandomBackgroundTerrain", function (action) {
 
-    var dialog = new Dialog("Random Background Terrain", 450, 450);
+    var dialog = new Dialog("Random Background Terrain");
     var state = {
         terrain: true,
         tiles: true
@@ -41,10 +41,10 @@ RandomBackgroundTerrain.testPromptAction = tiled.registerAction("RandomBackgroun
         }
 
     }
-    var mainLabel = dialog.addLabel("Random Background Terrain", true);
+    var mainLabel = dialog.addHeading("Random Background Terrain", true);
     dialog.addSeparator("Generation Options");
     dialog.addNewRow();
-    dialog.addLabel("Size ");
+    dialog.addHeading("Size ");
     var sizeXInput = dialog.addNumberInput("X:");
     sizeXInput.decimals = 0;
     watchForStateChange(sizeXInput, "sizeX");
@@ -52,7 +52,7 @@ RandomBackgroundTerrain.testPromptAction = tiled.registerAction("RandomBackgroun
     sizeYInput.decimals = 0;
     watchForStateChange(sizeYInput, "sizeY");
     dialog.addNewRow();
-    dialog.addLabel("Terrain ");
+    dialog.addHeading("Terrain ");
     var terrainMinInput = dialog.addNumberInput("min:");
     terrainMinInput.decimals = 0;
     watchForStateChange(terrainMinInput, "terrainMin:");
@@ -87,7 +87,6 @@ RandomBackgroundTerrain.testPromptAction = tiled.registerAction("RandomBackgroun
     var downloadButton = dialog.addButton("Download");
     downloadButton.clicked.connect(() => {
         tiled.log(`Downloading...`);
-        dialog.resize(250, 250);
     });
     var toggleTerrain = dialog.addButton("Toggle Terrain");
     toggleTerrain.clicked.connect(() => {

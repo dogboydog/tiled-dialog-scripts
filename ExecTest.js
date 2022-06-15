@@ -36,7 +36,7 @@ ExecTest.testPromptAction = tiled.registerAction("ExecTest", function (action) {
     }
     var dialog = new Dialog();
     dialog.setTitle("Simple Dialog");
-    dialog.addLabel(
+    dialog.addHeading(
         `This is my label
 I put my words on it.
     `, true);

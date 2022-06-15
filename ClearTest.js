@@ -7,7 +7,7 @@ ClearTest.testPromptAction = tiled.registerAction("ClearTest", function (action)
 
     var dialog = new Dialog();
 
-    dialog.addLabel("My cool label");
+    dialog.addHeading("My cool label");
     dialog.addSeparator();
     // var sizeXInputArgs = new NumberInputArgs();
     // sizeXInputArgs.suffix ="px";
@@ -20,7 +20,7 @@ ClearTest.testPromptAction = tiled.registerAction("ClearTest", function (action)
     button.clicked.connect(()=>{
         tiled.log(`clear button clicked`);
         dialog.clear();
-        dialog.addLabel("Thanks. I never liked that old label.", true);
+        dialog.addHeading("Thanks. I never liked that old label.", true);
         dialog.addNewRow();
         dialog.addSlider("Now slide this:");
     });

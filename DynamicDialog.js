@@ -44,7 +44,7 @@ DynamicDialog.drawUI = function (dialog, state) {
     dialog.clear();
     dialog.setTitle("Dynamic Dialog");
 
-    dialog.addLabel(`A dialog which changes based on user input.`, true);
+    dialog.addHeading(`A dialog which changes based on user input.`, true);
     dialog.addSeparator("Color Mappings");
     for (var colorIndex = 0; colorIndex < state.colors.length; colorIndex++) {
         state.colorButtons[colorIndex] = dialog.addColorButton(`Color #${colorIndex}`);

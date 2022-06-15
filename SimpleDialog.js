@@ -6,7 +6,7 @@ var SimpleDialog = {};
 SimpleDialog.testPromptAction = tiled.registerAction("SimpleDialog", function (action) {
 
     var dialog = new Dialog();
-    dialog.addLabel(
+    dialog.addHeading(
         `This is my label
 I put my words on it.
     `, true);
