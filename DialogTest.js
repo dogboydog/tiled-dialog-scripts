@@ -42,7 +42,7 @@ DialogTest.testPromptAction = tiled.registerAction("DialogTest", function (actio
 
     }
     var dialog = new Dialog();
-    dialog.setTitle("All Components Test");
+    dialog.windowTitle = "All Components Test";
     dialog.addHeading("This is a heading in a script");
     dialog.addSeparator();
     var doubleInput = dialog.addNumberInput("");
@@ -98,9 +98,8 @@ So make sure you enter it correctly.
     button.clicked.connect(() => {
         tiled.log(`Second dialog button clicked`);
         if (!secondDialog) {
-            secondDialog = new Dialog(); // parent to existing dialog
+            secondDialog = new Dialog("Second Window"); // parent to existing dialog
             secondDialog.addHeading("This is the second dialog");
-            secondDialog.setTitle("Second Window");
             secondDialog.show();
 
             secondDialog.rejected.connect(() => {

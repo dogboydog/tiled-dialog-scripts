@@ -9,20 +9,17 @@ ClearTest.testPromptAction = tiled.registerAction("ClearTest", function (action)
 
     dialog.addHeading("My cool label");
     dialog.addSeparator();
-    // var sizeXInputArgs = new NumberInputArgs();
-    // sizeXInputArgs.suffix ="px";
-    // sizeXInputArgs.maximum = 4080;
-    // sizeXInputArgs.minimum = 1;
-    // sizeXInputArgs.label = "Size X:";
-    // var sizeXInput = dialog.addNumberInput(sizeXInputArgs);
-    
+
     var button = dialog.addButton("Clear");
     button.clicked.connect(()=>{
         tiled.log(`clear button clicked`);
         dialog.clear();
         dialog.addHeading("Thanks. I never liked that old label.", true);
         dialog.addNewRow();
-        dialog.addSlider("Now slide this:");
+        var slider = dialog.addSlider("Now slide this:");
+        slider.valueChanged.connect((newValue)=>{
+            tiled.log(`The new slider value is ${newValue}`);
+        });
     });
     dialog.show();
 });

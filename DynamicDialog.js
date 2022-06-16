@@ -42,7 +42,7 @@ DynamicDialog.watchForStateChange = function (widget, stateKey) {
 };
 DynamicDialog.drawUI = function (dialog, state) {
     dialog.clear();
-    dialog.setTitle("Dynamic Dialog");
+    dialog.windowTitle = "Dynamic Dialog";
 
     dialog.addHeading(`A dialog which changes based on user input.`, true);
     dialog.addSeparator("Color Mappings");
