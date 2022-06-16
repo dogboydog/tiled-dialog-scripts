@@ -22,7 +22,7 @@ SelectFileDialog.testPromptAction = tiled.registerAction("SelectFileDialog", fun
             secondDialog.addSeparator();
 
             try {
-                var textFile = new TextFile(fileUrl, TextFile.Readonly);
+                var textFile = new TextFile(fileUrl, TextFile.ReadOnly);
                 text = textFile.readAll();
                 // take an excerpt of the file contents to display
                 text = text.substring(0, Math.min(text.length, 255));
