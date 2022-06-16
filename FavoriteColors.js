@@ -39,6 +39,7 @@ FavoriteColors.testPromptAction = tiled.registerAction("FavoriteColors", functio
     okButton.clicked.connect(() => {
         tiled.log(`OK button clicked.`);    
     });
+    dialog.minimumHeight = 550;
     dialog.show();
 });
 
