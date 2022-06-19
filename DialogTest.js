@@ -9,7 +9,7 @@ DialogTest.testPromptAction = tiled.registerAction("DialogTest", function (actio
 
         if (widget.valueChanged) {
             widget.valueChanged.connect((newValue) => {
-                tiled.log(`The new ${stateKey} value is ${newValue}`);
+                tiled.log(`The new ${stateKey} value is ${newValue} (type: ${typeof(newValue)})`);
                 state[stateKey] = newValue;
             });
         }
@@ -47,6 +47,12 @@ DialogTest.testPromptAction = tiled.registerAction("DialogTest", function (actio
     dialog.addSeparator();
     var doubleInput = dialog.addNumberInput("");
     watchForStateChange(doubleInput, "doubleInput");
+    dialog.addSeparator("Text Edit ");
+    dialog.addNewRow();
+    var textEdit = dialog.addTextEdit("Edit this text");
+    textEdit.textChanged.connect(()=>{
+        tiled.log(`The next text is:\n${textEdit.plainText}`);
+    });
     dialog.addSeparator("Dropdowns ");
     dialog.addHeading("Make your choice: ");
     var comboBox = dialog.addComboBox("", ["hamburger", "hot dog", "carrot"]);
@@ -63,6 +69,11 @@ DialogTest.testPromptAction = tiled.registerAction("DialogTest", function (actio
     colorButton.color = "#bb12cc"
     colorButton.toolTip = "This is your color.";
     watchForStateChange(colorButton, 'colorButton');
+    dialog.addHeading("Select your file please.", true);
+    var filePicker1 = dialog.addFilePicker("Your file: ");
+    filePicker1.fileUrlChanged.connect((newUrl) => {
+        tiled.log(`The new file is ${filePicker1.fileUrl}`);
+    });
     dialog.addHeading(
         `Please enter your important second value. 
 This value will determine everything that happens to you from now on.
@@ -77,9 +88,9 @@ So make sure you enter it correctly.
     slider1.maximum = 10;
     watchForStateChange(slider1, "slider1");
     var doubleInput = dialog.addNumberInput("");
-    doubleInput.prefix ="$";
+   // doubleInput.prefix ="$";
     doubleInput.decimals = 2;
-
+    tiled.log(`Double input value ${doubleInput.value}`)
     watchForStateChange(doubleInput, "doubleInput");
     var textInput = dialog.addTextInput('Name: ', 'Fred');
     textInput.placeholderText = "Name";

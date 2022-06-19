@@ -7,8 +7,8 @@ var FavoriteColors = {};
 FavoriteColors.testPromptAction = tiled.registerAction("FavoriteColors", function (action) {
 
     var dialog = new Dialog("Favorite Colors", 600, 450);
+    dialog.newRowMode = Dialog.SingleWidgetRows;
     var state = {
-
     };
 
     function watchForColorChange(widget, stateKey) {
@@ -20,6 +20,7 @@ FavoriteColors.testPromptAction = tiled.registerAction("FavoriteColors", functio
             state[stateKey] = newValue;
         });
     }
+
    // var mainLabel = dialog.addHeading("Pick your four favorite colors", true);
     // var spacerLabel = dialog.addHeading('Colors', false);
     var colorButton1 = dialog.addColorButton("#1");
@@ -38,8 +39,8 @@ FavoriteColors.testPromptAction = tiled.registerAction("FavoriteColors", functio
     var okButton = dialog.addButton("OK");
     okButton.clicked.connect(() => {
         tiled.log(`OK button clicked.`);    
+        dialog.accept();
     });
-    dialog.minimumHeight = 550;
     dialog.show();
 });
 

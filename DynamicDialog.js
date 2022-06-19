@@ -47,6 +47,8 @@ DynamicDialog.drawUI = function (dialog, state) {
     dialog.addHeading(`A dialog which changes based on user input.`, true);
     dialog.addSeparator("Color Mappings");
     for (var colorIndex = 0; colorIndex < state.colors.length; colorIndex++) {
+   
+        dialog.addNewRow();
         state.colorButtons[colorIndex] = dialog.addColorButton(`Color #${colorIndex}`);
         state.colors[colorIndex] = "#ffffff";
         state.colorButtons[colorIndex].colorChanged.connect((newColor) => {
@@ -56,6 +58,7 @@ DynamicDialog.drawUI = function (dialog, state) {
 
 
         state.tileInputs[colorIndex] = dialog.addNumberInput(`Tile ID #${colorIndex}`);
+        state.tileInputs[colorIndex].decimals = 0;
         state.tileInputs[colorIndex].valueChanged.connect((newValue) => {
             tiled.log(`ID input #${colorIndex} value changed to ${newValue}`);
             state.tileIds[colorIndex] = newValue;
