@@ -15,7 +15,8 @@ SelectFileDialog.testPromptAction = tiled.registerAction("SelectFileDialog", fun
     var submitButton = dialog.addButton("Submit");
     submitButton.clicked.connect(() => {
         if (!secondDialog) {
-            var fileUrl = filePicker1.fileUrl.toString().replace("file://", "");
+            var fileSchemeReplace = tiled.platform == "windows" ? "file:///" : "file://";
+            var fileUrl = filePicker1.fileUrl.toString().replace(fileSchemeReplace, "");
             var text = '';
             secondDialog = new Dialog();
             secondDialog.addLabel("File Contents (Excerpt)");
