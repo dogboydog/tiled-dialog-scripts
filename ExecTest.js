@@ -10,7 +10,7 @@ ExecTest.testPromptAction = tiled.registerAction("ExecTest", function (action) {
         if (widget.valueChanged) {
             widget.valueChanged.connect((newValue) => {
                 tiled.log(`The new ${stateKey} value is ${newValue}`);
-                state[stateKey] = newValue;
+                state[stateKey] = widget.value;
             });
         }
         if (widget.colorChanged) {
