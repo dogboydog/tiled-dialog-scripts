@@ -16,7 +16,7 @@ RandomBackgroundTerrain.testPromptAction = tiled.registerAction("RandomBackgroun
         if (widget.valueChanged) {
             widget.valueChanged.connect((newValue) => {
                 tiled.log(`The new ${stateKey} value is ${newValue}`);
-                state[stateKey] = newValue;
+                state[stateKey] = widget.value;
             });
         }
         if (widget.colorChanged) {

@@ -10,7 +10,7 @@ DynamicImageDialog.watchForStateChange = function (widget, stateKey) {
     if (widget.valueChanged) {
         widget.valueChanged.connect((newValue) => {
             tiled.log(`The new ${stateKey} value is ${newValue}`);
-            state[stateKey] = newValue;
+            state[stateKey] = widget.value;
         });
     }
     if (widget.colorChanged) {
@@ -107,8 +107,8 @@ DynamicImageDialog.testPromptAction = tiled.registerAction("DynamicImageDialog",
         sep: tiled.platform == "windows" ? "\\": "/"       
     };
     // get the image from this same directory
-    state.baseImagePath= f.substring(0, f.lastIndexOf(state.sep)) + state.sep + "tiledbear.png";
-
+    state.baseImagePath= f.substring(0, f.lastIndexOf("/")) + state.sep + "tiledbear.png";
+    tiled.log(`Loading base image ${state.baseImagePath}`);
     var baseImage = new Image(state.baseImagePath);
     state.imgWidth = baseImage.width;
     state.imgHeight = baseImage.height;

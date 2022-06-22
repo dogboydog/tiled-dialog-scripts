@@ -9,8 +9,8 @@ DialogTest.testPromptAction = tiled.registerAction("DialogTest", function (actio
 
         if (widget.valueChanged) {
             widget.valueChanged.connect((newValue) => {
-                tiled.log(`The new ${stateKey} value is ${newValue} (type: ${typeof(newValue)})`);
-                state[stateKey] = newValue;
+                tiled.log(`(valueChanged) The new ${stateKey} value is ${widget.value} (type ${typeof(widget.value)})`);
+                state[stateKey] = widget.value;
             });
         }
         if (widget.colorChanged) {
@@ -21,7 +21,7 @@ DialogTest.testPromptAction = tiled.registerAction("DialogTest", function (actio
         }
         if (widget.textChanged) {
             widget.textChanged.connect((newValue) => {
-                tiled.log(`The new ${stateKey} text is ${newValue}`);
+                tiled.log(`(textChanged) The new ${stateKey} text is ${newValue}`);
                 state[stateKey] = newValue;
             });
         }
