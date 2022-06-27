@@ -6,7 +6,7 @@ var FavoriteColors = {};
 
 FavoriteColors.testPromptAction = tiled.registerAction("FavoriteColors", function (action) {
 
-    var dialog = new Dialog("Favorite Colors", 600, 450);
+    var dialog = new Dialog("Favorite Colors");
     dialog.newRowMode = Dialog.SingleWidgetRows;
     var state = {
     };

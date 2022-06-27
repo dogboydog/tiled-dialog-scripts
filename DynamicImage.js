@@ -6,7 +6,6 @@
 var DynamicImageDialog = {};
 const f = __filename;
 DynamicImageDialog.watchForStateChange = function (widget, stateKey) {
-
     if (widget.valueChanged) {
         widget.valueChanged.connect((newValue) => {
             tiled.log(`The new ${stateKey} value is ${newValue}`);
