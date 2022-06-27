@@ -43,9 +43,10 @@ DynamicDialog.watchForStateChange = function (widget, stateKey) {
 DynamicDialog.drawUI = function (dialog, state) {
     dialog.clear();
     dialog.windowTitle = "Dynamic Dialog";
-
+    dialog.newRowMode = Dialog.ManualRows;
     dialog.addHeading(`A dialog which changes based on user input.`, true);
     dialog.addSeparator("Color Mappings");
+    dialog.addNewRow();
     for (var colorIndex = 0; colorIndex < state.colors.length; colorIndex++) {
    
         dialog.addNewRow();
@@ -65,6 +66,7 @@ DynamicDialog.drawUI = function (dialog, state) {
         });
         state.tileIds[colorIndex] = 1;
     }
+    dialog.addNewRow();
     state.addColorButton = dialog.addButton("+");
     state.addColorButton.toolTip = "Add a new color-ID mapping.";
     state.addColorButton.clicked.connect(() => {
