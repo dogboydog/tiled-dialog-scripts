@@ -1,6 +1,5 @@
 /* 	Advanced scripting prompt test script
 */
-// https://cdn.discordapp.com/attachments/984810493124423730/984961513351704636/unknown.png 
 var FavoriteColors = {};
 
 import {DialogUtils} from 'DialogUtils.mjs';
