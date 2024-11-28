@@ -1,4 +1,4 @@
-/* 	Advanced scripting prompt test script
+/* 	Dialog test script
 */
 var FavoriteColors = {};
 
